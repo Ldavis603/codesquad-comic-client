@@ -20,7 +20,7 @@ function App() {
       <Admin/>
       <Create/>
       <Login/>
-      {/* <Update/> */}
+      <Update/>
     </div>
   );
 }
