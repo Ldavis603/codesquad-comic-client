@@ -6,7 +6,6 @@ function Footer (){
     return (
         <>
 
-      <div>Footer</div>
       <footer>
       <div className="border">
         <div>
@@ -21,7 +20,7 @@ function Footer (){
         <div>
           <h3>LINKS</h3>
           <Link to="#" className="class1">Home</Link><br />
-          <Link to="#" className="class1">About/</Link><br />
+          <Link to="#" className="class1">About</Link><br />
           <Link to="#" className="class1">Login</Link><br />
         </div>
 
@@ -33,7 +32,7 @@ function Footer (){
         </div>
         <div>
           <h3>A PRODUCT OF</h3>
-          <img src={logo} alt="logo"/>
+          {/* <img src={logo} alt="logo"/> */}
       </div>
       </div>
     </footer>

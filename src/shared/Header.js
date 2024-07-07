@@ -4,23 +4,22 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
-      <div>Header</div>
       <div className="container">
         <nav>
-          <img src={logo} />
+        {/* <img src={logo} alt="logo"/> */}
           <ul>
             <li>
-              <Link to="#" class="class1">
+              <Link to="#" className="class1">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="#" class="class1">
+              <Link to="#" className="class1">
                 About
               </Link>
             </li>
             <li>
-              <Link to="#" class="class1">
+              <Link to="#" className="class1">
                 Login
               </Link>
             </li>
