@@ -1,11 +1,31 @@
 import React from "react";
 
 const Cerate = () => {
+
+  
+
+  const handleCreateFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(handleCreateFormSubmit)
+    console.log(title)
+    console.log(author)
+    console.log(genre)
+    console.log(publisher)
+    const body = {
+      title: e.target.title.value,
+      author: e.target.author.value,
+      genre: e.target.genre.value,
+      publisher: e.target.publisher.value
+
+    
+      
+    }
+  }
   return (
     <>
       <div className="create-container">
         <h1 className="header">CREATE NEW COMIC</h1>
-        <form>
+        <form onSubmit={handleCreateFormSubmit}>
           <label htmlFor="title">Title:</label>
           <input type="text" id="title" name="title" placeholder="Title" />
           <br />
