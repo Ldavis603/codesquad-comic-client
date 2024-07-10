@@ -7,14 +7,12 @@ import Admin from "./components/Admin";
 import Create from "./components/Create";
 import Login from "./components/Login";
 import Update from "./components/Update";
-import { useState } from "react";
 
 
 
 function App() {
 
-  const [userInfo, setUserInfo] = useState({Header, Login, Signup,
-  })
+  
 
   return (
     <div className="App">

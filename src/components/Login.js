@@ -1,16 +1,24 @@
 import React from "react";
 
 const Login = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log(handleLogin)
+    
+  
+  }
+
+
   return (
     <>
       <div className="upper-container">
         <div className="form">
           <h1>LOGIN</h1>
-          <form>
-            <label htmlFor="rating">Email Address:</label>
+          <form on Submit ={handleLogin}>
+            <label htmlFor="email">Email Address:</label>
             <input
               type="email"
-              id="emailaddress"
+              id="email"
               name="email"
               placeholder="Email"
             />

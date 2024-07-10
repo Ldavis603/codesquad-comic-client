@@ -1,26 +1,17 @@
 import React from "react";
 
-const Cerate = () => {
+const Create = () => {
 
   
 
   const handleCreateFormSubmit = (e) => {
     e.preventDefault();
     console.log(handleCreateFormSubmit)
-    console.log(title)
-    console.log(author)
-    console.log(genre)
-    console.log(publisher)
-    const body = {
-      title: e.target.title.value,
-      author: e.target.author.value,
-      genre: e.target.genre.value,
-      publisher: e.target.publisher.value
-
     
+   
       
     }
-  }
+  
   return (
     <>
       <div className="create-container">
@@ -70,4 +61,4 @@ const Cerate = () => {
   );
 };
 
-export default Cerate;
+export default Create;

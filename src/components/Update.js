@@ -1,11 +1,29 @@
 import React from "react";
+import booksData from "../data/books";
+import { useEffect, useState } from "react";
+
 
 const Update = () => {
+
+  const id =  "66b62a49-a8de-4914-ab3f-49fe0554c08a";
+
+  const [book, setBook] = useState();
+  useEffect(() => {
+    const books = booksData;
+  }
+  );
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    console.log(handleUpdate)
+
+  }
+
   return (
     <>
       <div className="create-container">
         <h1>UPDATE COMIC</h1>
-        <form>
+        <form on onSubmit={handleUpdate}>
           <label htmlFor="title">Title:</label>
           <input
             type="text"
