@@ -34,6 +34,8 @@ const Home = () => {
                   className="image-cover"
                   src={`/images/${book.image}`}
                   alt={book.title}
+                  width="250"
+                  height="250"
                 />
               </a>{" "}
               <br />
