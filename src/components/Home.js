@@ -3,14 +3,11 @@ import React from "react";
 import booksData from "../data/books";
 
 const Home = () => {
-
   const [books, setBooks] = useState([]);
   useEffect(() => {
     const books = booksData;
-
   });
-// }, []);
-
+  // }, []);
 
   return (
     <>
@@ -49,5 +46,5 @@ const Home = () => {
       </div>
     </>
   );
-  };
+};
 export default Home;

@@ -1,8 +1,16 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
 import booksData from "../data/books";
 
 const Admin = () => {
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    const books = booksData;
+  });
+
+  // }, []);
+
   return (
     <>
       <div className="create-container">

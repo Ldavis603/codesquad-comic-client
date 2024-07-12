@@ -1,17 +1,11 @@
 import React from "react";
 
 const Create = () => {
-
-  
-
   const handleCreateFormSubmit = (e) => {
     e.preventDefault();
-    console.log(handleCreateFormSubmit)
-    
-   
-      
-    }
-  
+    console.log(handleCreateFormSubmit);
+  };
+
   return (
     <>
       <div className="create-container">
