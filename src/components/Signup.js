@@ -1,11 +1,40 @@
 import React from "react";
 
-const Signup = () => {
+const Signup = ({user, setUser}) => {
+  const navigate = useNavigate();
+  const body = {
+    username: e.target.username.value,
+    password: e.target.password.value,
+  };
+
 
     const handleSignUp = (e) => {
+      fetch("http://localhost:8080/local/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      })
+      .then((response) => response.json()).then((response) => {
+        if (response.statusCode === 200) {
+          setUser ({});
+          localStorage.removeItem("user");
+          navigate("/exercise");
+        } else {
+          throw new Error(response.error)
+        }
+      })
+      .catch ((error) => {
+        console.log("errLogout", error);
+        navigate ("/account");
+    });
+    };
+    
+
         e.preventDefault();
         console.log(handleSignUp)
-    }
+    };
 
     return (
         <>
@@ -50,5 +79,5 @@ const Signup = () => {
       </div>
 
         </>
-    )
-}
+    );
+// };

@@ -5,9 +5,16 @@ import booksData from "../data/books";
 const Home = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    const books = booksData;
-  });
-  // }, []);
+      fetch("http://localhost:8080/api/books")
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result.data);
+          setBooks(result.data);
+        });
+      
+        
+  
+  }, []);
 
   return (
     <>

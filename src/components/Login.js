@@ -1,10 +1,48 @@
 import React from "react";
+import { useState } from "react";
+import {useNavigate} from "react";
 
-const Login = () => {
+const Login = ({user, setUser}) => {
+  const navigate = userNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(handleLogin);
+    console.log(JSON.stringify(user));
   };
+
+
+  const body = {
+    username: e.target.username.value,
+    password: e.target.password.value
+  };
+
+  fetch("http://localhost:8080/local/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(result.data),
+  })
+  .then((response) => response.json()).then((response) => {
+    if (response.statusCode === 200) {
+      setUser ({});
+      localStorage.removeItem("user");
+      navigate("/exercise");
+    } else {
+      throw new Error(response.error)
+    }
+  })
+  .catch ((error) => {
+    console.log("errLogout", error);
+    navigate ("/account");
+});
+};
+
+e.preventDefault();
+console.log(handleSignUp)
+};
+
+
 
   return (
     <>
@@ -29,6 +67,7 @@ const Login = () => {
       </div>
     </>
   );
-};
+// };
+
 
 export default Login;

@@ -1,27 +1,39 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import {useParams} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import booksData from "../data/books";
 
 const Admin = () => {
+
+  const { bookId } = useParams();
+  const navigate = useNavigate();
+
+
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    const books = booksData;
-  });
+    fetch("http://localhost:8080/api/books")
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result.data);
+      setBooks(result.data);
+    });
 
-  // }, []);
+  
+
+  }, []);
 
   return (
     <>
       <div className="create-container">
         <h1>ADMIN PAGE</h1>
 
-        <div style={{ overflowX: "auto" }}></div>
+        <div className="table-container" style ={{overflowX:"auto"}}>
         <thead>
           <tr>
-            <th scope="col">COMIC TITLE</th>
-            <th scope="col">EDIT</th>
-            <th scope="col">DELETE</th>
+            <th >COMIC TITLE</th>
+            <th >EDIT</th>
+            <th >DELETE</th>
           </tr>
         </thead>
         {booksData.map((book) => (
@@ -30,15 +42,34 @@ const Admin = () => {
               <tr>
                 <td>{book.title}</td>
                 <td>
-                  <button className="editbtn2">EDIT</button>
+                <button onClick={() => navigate("/update")}>
+            {" "}
+            Update
+          </button>
+
                 </td>
                 <td>
-                  <button className="editbtn">DELETE</button>
+                <button style={{backgroundColor:"teal"}} onClick={(e) => {
+            fetch(`http://localhost:8080/api/books/delete/${bookId}`, {
+                method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result.data);
+      });
+          }} >
+            
+            {" "}
+            Delete
+          </button>
+                  
                 </td>
               </tr>
             </tbody>
+            
           </div>
         ))}
+      </div>
       </div>
     </>
   );

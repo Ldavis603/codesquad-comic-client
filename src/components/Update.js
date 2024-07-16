@@ -7,7 +7,7 @@ const Update = () => {
 
   const id =  "66b62a49-a8de-4914-ab3f-49fe0554c08a";
 
-  const [book, setBook] = useState();
+  const [updatedBook, setUpdatedBook] = useState();
   useEffect(() => {
     const books = booksData;
   }
