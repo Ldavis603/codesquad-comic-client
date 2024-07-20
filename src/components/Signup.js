@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react";;
+import {useNavigate} from "react"
 
 const Signup = ({user, setUser}) => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const Signup = ({user, setUser}) => {
 
 
     const handleSignUp = (e) => {
-      fetch("http://localhost:8080/local/login", {
+      fetch("http://localhost:8080/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -19,8 +20,8 @@ const Signup = ({user, setUser}) => {
       .then((response) => response.json()).then((response) => {
         if (response.statusCode === 200) {
           setUser ({});
-          localStorage.removeItem("user");
-          navigate("/exercise");
+          localStorage.setItem("user");
+          navigate("/admin");
         } else {
           throw new Error(response.error)
         }
@@ -41,7 +42,7 @@ const Signup = ({user, setUser}) => {
               <div className="upper-container">
         <div className="form">
           <h1>Signup</h1>
-          <form on Submit ={handleSignup}>
+          <form on Submit ={handleSignUp}>
             <label htmlFor="firstName">First Name:</label>
             <input
               type="firstName"
@@ -81,3 +82,5 @@ const Signup = ({user, setUser}) => {
         </>
     );
 // };
+
+export default Signup;

@@ -1,45 +1,49 @@
 import React from "react";
-import { useState } from "react";
 import {useNavigate} from "react";
 
 const Login = ({user, setUser}) => {
-  const navigate = userNavigate();
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log(JSON.stringify(user));
-  };
-
-
+  const navigate = useNavigate();
   const body = {
     username: e.target.username.value,
-    password: e.target.password.value
+    password: e.target.password.value,
   };
 
-  fetch("http://localhost:8080/local/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(result.data),
-  })
-  .then((response) => response.json()).then((response) => {
-    if (response.statusCode === 200) {
-      setUser ({});
-      localStorage.removeItem("user");
-      navigate("/exercise");
-    } else {
-      throw new Error(response.error)
-    }
-  })
-  .catch ((error) => {
-    console.log("errLogout", error);
-    navigate ("/account");
-});
-};
+  
+
+  const handleLogin = (e) => {
+    fetch("http://localhost:8080/local/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
+    .then((response) => response.json()).then((response) => {
+      if (response.statusCode === 200) {
+        setUser ({});
+        localStorage.setItem("user");
+        navigate("/admin");
+      } else {
+        throw new Error(response.error)
+      }
+    })
+    .catch ((error) => {
+      console.log("errLogout", error);
+      navigate ("/account");
+  });
+  // };
+  
+   
+  //   e.preventDefault();
+  //   console.log(JSON.stringify(user));
+  // };
+
+
+  
+
 
 e.preventDefault();
-console.log(handleSignUp)
+console.log(handleLogin)
 };
 
 
@@ -67,7 +71,7 @@ console.log(handleSignUp)
       </div>
     </>
   );
-// };
+};
 
 
 export default Login;
