@@ -1,10 +1,43 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
+  const navigate = useNavigate();
   const handleCreateFormSubmit = (e) => {
     e.preventDefault();
     console.log(handleCreateFormSubmit);
   };
+  const body = {
+    title: e.target.title.value,
+    author: e.target.author.value,
+    publisher:e.target.value,
+    value:e.target.value,
+    rating:e.target.value,
+    synopsis:e.target.value,
+  };
+
+  fetch("http://localhost:8080/api/books/create/new", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      if (response.statusCode === 200) {
+        navigate("/admin");
+      } else {
+        throw new Error(response.error)
+      }
+
+      })
+      .catch((error) => {
+        console.log("error", error);
+
+    });
+};
 
   return (
     <>
@@ -53,6 +86,6 @@ const Create = () => {
       </div>
     </>
   );
-};
+// };
 
 export default Create;

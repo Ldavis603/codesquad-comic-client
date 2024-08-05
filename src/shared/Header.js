@@ -15,7 +15,7 @@ function Header(user, setUser) {
         if (response.statusCode === 200) {
           setUser ({});
           localStorage.removeItem("user");
-          navigate("/exercise");
+          navigate("/");
         } else {
           throw new Error(response.error)
         }
