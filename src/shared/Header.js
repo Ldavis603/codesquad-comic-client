@@ -47,7 +47,7 @@ function Header(user, setUser) {
                 Login
               </Link>
             </li>
-            <a href="#">LOGOUT</a>
+            <a href="#"></a>
             <li>
               <Link to="" className="class1" onClick={handleLogout}>
                 Logout

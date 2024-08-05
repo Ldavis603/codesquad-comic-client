@@ -37,7 +37,7 @@ const Create = () => {
         console.log("error", error);
 
     });
-};
+// };
 
   return (
     <>
@@ -86,6 +86,6 @@ const Create = () => {
       </div>
     </>
   );
-// };
+};
 
 export default Create;
